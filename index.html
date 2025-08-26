@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Detail - Red Jasper</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Hide scrollbars for carousel on all browsers */
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-white">
+
+  <div class="max-w-7xl mx-auto px-6 py-3 text-sm text-gray-600">
+   <button class="font-semibold hover:text-yellow-600"> Home > </button> 
+   <button class="font-semibold hover:text-yellow-600"> Store > </button>
+   <button class="font-semibold hover:text-yellow-600">Bracelet ></button> 
+   <span class="text-red-600 font-bold">Red Jasper</span>
+  </div>
+
+  <section class="max-w-7xl mx-auto p-6 grid md:grid-cols-2 gap-8">
+
+
+    <div>
+      <img id="mainImage" src="b-m.jpg" alt="Product Image" class="rounded-lg shadow-md mb-4 w-full">
+      <div class="flex space-x-3">
+        <img src="b2.png" onclick="changeImage(this)" class="w-20 h-20 rounded cursor-pointer border hover:border-2 border-yellow-700">
+        <img src="b3.png" onclick="changeImage(this)" class="w-20 h-20 rounded cursor-pointer border hover:border-2 border-yellow-700">
+        <img src="b4.jpg" onclick="changeImage(this)" class="w-20 h-20 rounded cursor-pointer border hover:border-2 border-yellow-700">
+        <img src="b5.png" onclick="changeImage(this)" class="w-20 h-20 rounded cursor-pointer border hover:border-2 border-yellow-700">
+        <img src="b-m.jpg" onclick="changeImage(this)" class="w-20 h-20 rounded cursor-pointer border hover:border-2 border-yellow-700">
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="flex items-start justify-between">
+        <div>
+          <h2 class="text-gray-500">BRACELET</h2>
+          <h1 class="text-3xl font-bold text-gray-800">Red Jasper</h1>
+          <p class="text-red-600 text-xl font-semibold mt-2">₹767.00</p>
+        </div>
+
+    
+        <div class="flex space-x-3">
+    
+          <button id="favBtn" class="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-red-100 hover:text-red-500">
+            ❤️
+          </button>
+    
+          <button id="shareBtn" class="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-yellow-100 hover:text-yellow-600">
+            <img src="share.jpeg" alt="share button">
+          </button>
+        </div>
+      </div>
+
+      <label class="block mt-4 font-semibold">Pooja/Energization</label>
+      <select class="border rounded-lg w-full p-2 mt-1">
+        <option>--choose--</option>
+      </select>
+
+      <div class="flex space-x-3 mt-4" id="size-group">
+        <button class="group-btn px-4 py-2 border rounded-lg transition duration-300 transform hover:scale-110 hover:shadow-md">M</button>
+        <button class="group-btn px-4 py-2 border rounded-lg transition duration-300 transform hover:scale-110 hover:shadow-md">L</button>
+      </div>
+
+      <div class="flex space-x-3 mt-4" id="certificate-group">
+        <button class="group-btn px-4 py-2 border rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-md">With Certificate</button>
+        <button class="group-btn px-4 py-2 border rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-md">Without Certificate</button>
+      </div>
+
+      <div class="flex items-center space-x-3 mt-4">
+        <button id="decQty" class="px-3 py-1 border rounded-lg hover:bg-yellow-300">-</button>
+        <span id="qty" class="px-4">1</span>
+        <button id="incQty" class="px-3 py-1 border rounded-lg hover:bg-yellow-300">+</button>
+        <button class="bg-yellow-500 px-5 py-2 rounded-lg text-white transition duration-300 transform hover:scale-105 hover:shadow-md hover:bg-yellow-700  font-medium">Add to Cart</button>
+      </div>
+
+      <button class="bg-yellow-600 px-6 py-3 rounded-lg text-white transition duration-300 transform hover:scale-105 hover:shadow-md hover:bg-yellow-700 font-semibold mt-4 w-full">Buy Now</button>
+
+      <ul class="mt-6 space-y-2 font-semibold text-gray-700">
+        <li>⬤ Unleash Your Confidence</li>
+        <li>⬤ Connect with the Earth</li>
+        <li>⬤ Sharpen Your Focus</li>
+        <li>⬤ Boost Your Vitality</li>
+        <li>⬤ Find Inner Balance</li>
+      </ul>
+    </div>
+  </section>
+
+  
+  <div id="sharePopup" class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+    <div class="bg-white rounded-xl shadow-lg p-6 w-80 border-2 border-yellow-500 animate-fadeIn">
+      <h2 class="text-lg font-bold text-yellow-600 mb-3">Share this Bracelet</h2>
+
+  
+      <div class="flex items-center mb-4">
+        <input id="pageLink" type="text" value="http://127.0.0.1:5501/index.html" readonly class="flex-1 border rounded-l-lg px-2 py-1 text-sm">
+        <button onclick="copyLink()" class="bg-yellow-500 text-white px-3 py-1 rounded-r-lg">Copy</button>
+      </div>
+
+  
+      <div class="grid grid-cols-3 gap-3 text-center">
+        <a href="https://api.whatsapp.com/send?text=https://yourwebsite.com/product/red-jasper" target="_blank" class="bg-green-500 text-white py-2 rounded-lg hover:opacity-90">WhatsApp</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com/product/red-jasper" target="_blank" class="bg-blue-600 text-white py-2 rounded-lg hover:opacity-90">Facebook</a>
+        <a href="https://www.instagram.com/" target="_blank" class="bg-pink-500 text-white py-2 rounded-lg hover:opacity-90">Instagram</a>
+      </div>
+
+  
+      <button id="closePopup" class="mt-5 w-full bg-yellow-600 text-white py-2 rounded-lg font-semibold">Close</button>
+    </div>
+  </div>
+
+  
+  <div class="max-w-7xl mx-auto px-6 mt-10">
+    
+    <div class="flex space-x-6 border-b pb-2 font-semibold text-gray-600">
+      <button class="tab-btn text-yellow-600 border-b-2 border-yellow-600" data-tab="about">About Product</button>
+      <button class="tab-btn" data-tab="benefits">Benefits</button>
+      <button class="tab-btn" data-tab="faq">FAQ's</button>
+      <button class="tab-btn" data-tab="shipping">Shipping & Return</button>
+      <button class="tab-btn" data-tab="reviews">Product reviews</button>
+    </div>
+  
+    
+    <div class="mt-6 text-gray-700 leading-relaxed">
+      
+      <div class="tab-content" id="about">
+        <h2 class="text-lg font-bold">Red Jasper - Embrace the Empowering Energy Of Red Jasper Bracelet</h2>
+        <p class="mt-2">Red Jasper bracelets are more than just captivating accessories; they’re believed to be powerful tools for enhancing your physical and emotional well-being. This fiery red gemstone has been prized for centuries for its potential to ignite your inner fire.</p>
+        <h2 class="text-lg font-bold mt-4">Unleash Your Potential with Red Jasper:</h2>
+        <p class="mt-2">Red Jasper bracelets are more than just adornments; they're powerful companions on your journey to self-discovery. Invest in a piece that resonates with you and harness the transformative energy of Red Jasper.</p>
+        <h2 class="text-lg font-bold mt-4">Ready to Ignite Your Inner Strength?</h2>
+        <p class="mt-2">Don't wait to experience the empowering potential of Red Jasper. Explore our collection of exquisite Red Jasper bracelets, crafted with genuine gemstones and designed to fuel your inner fire.</p>
+        <h2 class="text-lg font-bold mt-4">Care and Use: Your Guide to Red Jasper Bracelets</h2>
+        <p class="mt-2">Red Jasper bracelets, while powerful, require a little TLC to maintain their beauty and energetic properties. Here's a quick guide on caring for your Red Jasper bracelet:</p>
+        <h2 class="text-lg font-bold mt-4">Do:</h2>
+        <ul class="list-disc list-inside mt-2 space-y-2"></ul>
+        <li> Cleanse Regularly: Cleanse your Red Jasper bracelet under lukewarm water with mild, non-abrasive soap. Dry thoroughly with a soft cloth. For deeper cleansing, you can place it in indirect sunlight for a few hours or smudge it with sage. </li>
+        <li> Wear it Often: The more you wear your Red Jasper bracelet, the more it can attune to your energy and intentions.</li>
+        <li> Set Your Intentions: Hold your Red Jasper and focus on your desired outcome, like increased energy, emotional balance, or unshakeable confidence.</li>
+        <li> Meditate with it: Incorporate your Red Jasper bracelet into your meditation practice. Hold it in your hands or place it on your body to amplify the benefits.</li>
+        <li> Store it Safely: Keep your Red Jasper bracelet in a separate pouch or compartment to prevent scratches from harder stones.</li>
+        <h2 class="text-lg font-bold mt-4">Don't:</h2>
+        <ul class="list-disc list-inside mt-2 space-y-2"></ul>
+        <li>Expose it to Harsh Chemicals: Avoid cleaning your Red Jasper bracelet with harsh chemicals, ultrasonic cleaners, or abrasive cleaners.</li>
+        <li>Subject it to Extreme Temperatures: Sudden temperature changes can cause cracks in some gemstones. Avoid wearing your Red Jasper bracelet in saunas or hot springs.</li>
+        <li>Drop It!: Red Jasper has a hardness rating of 6.5-7, but it can still chip or crack if dropped. Handle it with care.</li>
+        <li>Cleanse Excessively: While cleansing is important, some believe excessively cleansing Red Jasper can weaken its energy. Cleanse it intuitively or when you feel its energy needs refreshing.</li>
+        <li>Wear it During Strenuous Activity: Consider removing your Red Jasper bracelet during exercise or activities that could cause damage.</li>
+      </div>
+  
+      
+      <div class="tab-content hidden" id="benefits">
+        <h2 class="text-lg font-bold"> Benefits of Red Jasper Bracelet</h2>
+        <ul class="list-disc list-inside mt-2 space-y-2">
+          <li>Boost Your Vitality: Red Jasper is renowned as the "stone of endurance." It's believed to enhance your physical strength and stamina, giving you that extra push you need to conquer your day. </li>
+          <li>Find Inner Balance: Feeling overwhelmed? Red Jasper is said to promote emotional balance and stability, helping you navigate stressful situations with grace and composure. </li>
+          <li>Sharpen Your Focus: Struggling to concentrate? Red Jasper is believed to aid focus and determination, allowing you to tackle tasks with unwavering attention.</li>
+          <li>Connect with the Earth: Red Jasper is a grounding stone, fostering a deep connection to the Earth's nurturing energy. Experience a sense of security and stability as you reconnect with your roots. </li>
+          <li>Unleash Your Confidence: Red Jasper is said to ignite your inner fire, boosting your confidence and courage. Embrace new opportunities and take action towards your goals with unwavering determination. </li>
+        </ul>
+      </div>
+  
+     
+      <div class="tab-content hidden" id="faq">
+        <h2 class="text-lg font-bold">Frequently Asked Questions</h2>
+        <p class="mt-2"><strong>Q1: What are the benefits of wearing a Red Jasper bracelet?</strong><br>Red Jasper bracelets are associated with a range of benefits, including increased energy and stamina (physical and mental), emotional balance, improved focus, and a deeper connection to the Earth's grounding energy. </p>
+        <p class="mt-3"><strong>Q2: Can Red Jasper help me achieve my goals?</strong><br> Red Jasper is believed to boost confidence and determination, aiding you in taking action and pursuing your goals with unwavering spirit.</p>
+        <p class="mt-4"><strong>Q3: How do I cleanse my Red Jasper bracelet? </strong><br> Cleanse your Red Jasper bracelet regularly to remove any accumulated energies. Simple methods include rinsing it under lukewarm water with mild soap or placing it in indirect sunlight for rejuvenation. Some also use sage smudging for deeper cleansing.</p>
+        <p class="mt-5"><strong>Q4: Is Red Jasper safe to wear all the time?  </strong><br>Yes, Red Jasper is generally safe for everyday wear. However, some recommend removing it during strenuous activities to avoid scratches or chipping.</p>
+        <p class="mt-6"><strong>Q5: What's the best way to wear a Red Jasper bracelet? </strong><br>There's no one-size-fits-all approach. Many wear their Red Jasper bracelet on their dominant hand to maximize its connection with their energy field. However, wear it on whichever wrist feels most comfortable for you.</p>
+        <p class="mt-7"><strong>Q6: Can men wear Red Jasper bracelets? </strong><br>Absolutely! Red Jasper bracelets are believed to offer benefits for everyone, regardless of gender. The stylish design complements various aesthetics.        </p>
+        <p class="mt-8"><strong>Q7: Where can I buy a genuine Red Jasper bracelet?</strong><br>Look for reputable jewelers specializing in genuine gemstones or trusted online retailers known for quality crystals.        </p>
+        <p class="mt-9"><strong>Q8: How much does a Red Jasper bracelet typically cost?</strong><br>Prices vary depending on the gemstone quality, size, and craftsmanship. Expect a range of $20 to $100 or more.        </p>
+        <p class="mt-10"><strong>Q9: Will a Red Jasper bracelet work if I don't believe in its energy?</strong><br>The power of belief can be significant. Even if you're unsure about the metaphysical properties, the Red Jasper bracelet can still be a beautiful accessory and a reminder of your goals and inner strength.        </p>
+        <p class="mt-11"><strong>Q10: Do I need to set intentions for my Red Jasper bracelet?  </strong><br>Setting intentions personalizes your Red Jasper bracelet's energy. Hold the bracelet, focus on your desired outcome (e.g., increased energy, emotional balance), and visualize it being amplified by the stone.        </p> 
+      </div>
+  
+      
+      <div class="tab-content hidden" id="shipping">
+        <h2 class="text-lg font-bold">Shipping & Return Policy</h2>
+        <ul class="list-disc list-inside mt-2 space-y-2">
+          <li>Orders are processed within 24 hours</li>
+          <li>Free shipping on orders above ₹999</li>
+          <li>Easy 7-day return policy (unused items only)</li>
+          <li>Refund processed within 5-7 business days</li>
+        </ul>
+      </div>
+  
+      
+      <div class="tab-content hidden" id="reviews">
+        <h2 class="text-lg font-bold">Customer Reviews</h2>
+        <div class="mt-2 border-b pb-2">
+          <p class="font-semibold"> Arpit Pandey - ⭐ ⭐ ⭐ ⭐ ⭐ </p>
+          <p>Very beautiful and powerful bracelet. Helped me feel more energetic!</p>
+        </div>
+        <div class="mt-2">
+          <p class="font-semibold">Harsh singh  - ⭐ ⭐ ⭐ ⭐ ⭐</p>
+          <p>Good quality stone and fast delivery. Highly recommended.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <section class="max-w-7xl mx-auto px-6 mt-12 relative">
+    <h2 class="text-xl font-bold mb-4">You May Also Like</h2>
+    
+    <!-- Left Button -->
+    <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 bg-yellow-500 text-white px-3 py-2 rounded-full shadow hover:bg-yellow-600 z-10">
+      ◀
+    </button>
+    
+    <!-- Scrollable Container -->
+    <div id="carousel" class="flex overflow-x-auto space-x-6 scrollbar-hide scroll-smooth">
+      <!-- Example 41 cards (4 existing + 37 more) -->
+      <!-- Repeat these divs for all 41 products -->
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s1.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Red Jasper</p>
+        <p class="text-red-600 font-semibold">₹767</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s2.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">7 Chakra Lava Bracelet</p>
+        <p class="text-red-600 font-semibold">₹799</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s3.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Tiger Eye Bracelet</p>
+        <p class="text-red-600 font-semibold">₹690</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+  
+      <!-- 👇 Yaha aur 37 aur product cards add kar do same structure se -->
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="s4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sphatik Bracelet</p>
+        <p class="text-red-600 font-semibold">₹989</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Add to Cart</button>
+      </div>
+      
+    </div>
+    
+    <!-- Right Button -->
+    <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 bg-yellow-500 text-white px-3 py-2 rounded-full shadow hover:bg-yellow-600 z-10">
+      ▶
+    </button>
+  </section>
+  
+ 
+  
+  <script>
+      // ------------------ MAIN PRODUCT IMAGE AUTO CHANGE ------------------
+  const mainImage = document.getElementById("mainImage");
+  const thumbContainer = document.querySelector(".flex.space-x-3"); // tumhara thumbnails wala div
+  const thumbnails = thumbContainer.querySelectorAll("img");
+  let imgIndex = 0;
+  let autoChange;
+
+  function startImageChange() {
+    autoChange = setInterval(() => {
+      imgIndex = (imgIndex + 1) % thumbnails.length;
+      mainImage.src = thumbnails[imgIndex].src;
+    }, 5000); // 5 sec
+  }
+
+  function stopImageChange() {
+    clearInterval(autoChange);
+  }
+
+  if (mainImage && thumbnails.length > 0) {
+    startImageChange();
+
+    thumbnails.forEach((thumb, index) => {
+      thumb.addEventListener("click", () => {
+        mainImage.src = thumb.src;
+        imgIndex = index;
+        stopImageChange();
+        startImageChange();
+      });
+    });
+  }
+
+  document.querySelectorAll(".option-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("bg-yellow-500");  // background color
+    btn.classList.toggle("text-white");     // text color
+    btn.classList.toggle("border-yellow-700"); // border highlight
+  });
+});
+
+  
+// -------------------------
+  // Exclusive Toggle Groups
+  // -------------------------
+  function setupExclusiveGroup(groupId) {
+    const buttons = document.querySelectorAll(`#${groupId} .group-btn`);
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (btn.classList.contains("bg-yellow-500")) {
+          // Already selected -> deselect
+          btn.classList.remove("bg-yellow-500", "text-white", "border-yellow-700");
+        } else {
+          // Deselect all in group
+          buttons.forEach(b => b.classList.remove("bg-yellow-500", "text-white", "border-yellow-700"));
+          // Select current
+          btn.classList.add("bg-yellow-500", "text-white", "border-yellow-700");
+        }
+      });
+    });
+  }
+
+  // Apply logic to both groups
+  setupExclusiveGroup("size-group");
+  setupExclusiveGroup("certificate-group");
+
+
+  // Quantity buttons fix
+  const decBtn = document.getElementById("decQty");
+  const incBtn = document.getElementById("incQty");
+  const qtySpan = document.getElementById("qty");
+
+  decBtn.addEventListener("click", () => {
+    let current = parseInt(qtySpan.innerText);
+    if (current > 1) {
+      qtySpan.innerText = current - 1;
+    }
+  });
+
+  incBtn.addEventListener("click", () => {
+    let current = parseInt(qtySpan.innerText);
+    qtySpan.innerText = current + 1;
+  });
+  
+     // ------------------ TOAST FOR FAVOURITE ------------------
+  function showToast(message) {
+    const toast = document.createElement("div");
+    toast.textContent = message;
+    toast.className =
+      "fixed bottom-5 right-5 bg-yellow-500 text-white px-4 py-2 rounded-lg shadow-lg animate-fadeIn";
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.remove();
+    }, 2500);
+  }
+
+  
+
+  // Favourite button
+  const favBtn = document.getElementById("favBtn");
+  favBtn.addEventListener("click", () => {
+    favBtn.classList.toggle("bg-red-500");
+    favBtn.classList.toggle("text-white");
+    showToast("Added to Favourite ❤️");
+  });
+
+
+
+   // ------------------ SHARE POPUP ------------------
+   const shareBtn = document.getElementById("shareBtn");
+  const sharePopup = document.getElementById("sharePopup");
+  const closePopup = document.getElementById("closePopup");
+
+  shareBtn.addEventListener("click", () => {
+    sharePopup.classList.remove("hidden");
+  });
+
+  closePopup.addEventListener("click", () => {
+    sharePopup.classList.add("hidden");
+  });
+
+  function copyLink() {
+    const linkInput = document.getElementById("pageLink");
+    linkInput.select();
+    document.execCommand("copy");
+    showToast("Link Copied! 📋");
+  }
+  
+    // Tabs
+    const tabBtns = document.querySelectorAll(".tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
+  
+    tabBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabBtns.forEach(b => b.classList.remove("text-yellow-600", "border-b-2", "border-yellow-600"));
+        btn.classList.add("text-yellow-600", "border-b-2", "border-yellow-600");
+  
+        tabContents.forEach(content => content.classList.add("hidden"));
+        document.getElementById(btn.dataset.tab).classList.remove("hidden");
+      });
+    });
+  
+    // Carousel
+    const carousel = document.getElementById("carousel");
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+  
+    let scrollAmount = 300; // kitna px scroll ho ek baar me
+    let autoScroll;
+  
+    // Manual scroll
+    nextBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
+    prevBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
+  
+    // Auto scroll
+    function startAutoScroll() {
+      autoScroll = setInterval(() => {
+        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
+          carousel.scrollTo({ left: 0, behavior: "smooth" }); // reset to start
+        } else {
+          carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        }
+      }, 3000);
+    }
+  
+    function stopAutoScroll() {
+      clearInterval(autoScroll);
+    }
+  
+    carousel.addEventListener("mouseenter", stopAutoScroll);
+    carousel.addEventListener("mouseleave", startAutoScroll);
+  
+    startAutoScroll();
+  </script>
+  
+   
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+  
+   
+
+  </style>
+
+</body>
+</html>
